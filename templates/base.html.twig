@@ -1,19 +1,66 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>- {% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+   <nav class="py-2 bg-dark border-bottom">
+       <div class="container d-flex flex-wrap">
+           <div class="dropdown">
+               <a class="nav nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Mon blog
+               </a>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenaButtonAdmin">
+                   <li><a class="dropdown-item" href="#">Tableau de bord</a></li>
+                   <li><a class="dropdown-item" href="#">Menus</a></li>
+               </ul>
+           </div>
+           <div class="dropdown">
+               <a class="nav nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Ajouter
+               </a>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenaButtonAdmin">
+                   <li><a class="dropdown-item" href="#">Article</a></li>
+                   <li><a class="dropdown-item" href="#">Page</a></li>
+               </ul>
+           </div>
+       </div>
+   </nav>
+
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" href="{{ path('app_home') }}">
+            <span class="fs-4">Mon blog</span>
+        </a>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="#">S'inscrire</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark"  href="#">Se connecter</a>
+            </li>
+        </ul>
+    </header>
+</div>
+
+{% block body %}{% endblock %}
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <span class="fa-copyright">&copy Simon De Boe</span>
+        </div>
+    </footer>
+</div>
+</body>
 </html>
